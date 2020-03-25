@@ -1,10 +1,13 @@
 const app = require ('./bin/express');
-const port= 3333;
+//const port= 3333;
 //const questions = require ('./module/questionSchema')
 const routerQuiz = require ('./module/router')
-const bodyParser =require ('body-parser');
+const cors = require('cors');
 
-
+app.get( '/', async (req,res) => {
+ res.send('funcionando')
+})
+app.use(cors);
 app.use('/api',routerQuiz)
 
 //app.use(bodyParser.json)
@@ -34,4 +37,5 @@ app.get( '/inserir', async (req,res) => {
 })
 
 */
-app.listen(port)
+//server.connection({ port: process.env.PORT || 3000 }); 
+app.listen(process.env.PORT || 3000)
